@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+// The stats service definition.
+service Stats {
+  // Sends a stats computation
+  rpc Average (AverageRequest) returns (SingleResult) {}
+  rpc Median (MedianRequest) returns (SingleResult) {}
+}
+
+// The average requests contains a collection of ints
+message AverageRequest {
+  repeated int32 data = 1;
+}
+
+// The average requests contains a collection of ints
+message MedianRequest {
+  repeated int32 data = 1;
+}
+
+// Single result is a message with a single int result.
+message SingleResult {
+	float result = 1;
+}
